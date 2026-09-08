@@ -1,6 +1,6 @@
 # Smart Productivity Task Manager
 
-Smart Productivity Task Manager is a cloud-native backend project for SWE455 Cloud Applications Engineering. It uses two Node.js microservices, a managed NoSQL datastore, infrastructure-as-code, and automated CI/CD for production deployment.
+Smart Productivity Task Manager is a cloud-based backend project for SWE455 Cloud Applications Engineering. It uses two Node.js microservices, a managed NoSQL datastore, infrastructure-as-code, and automated CI/CD for production deployment.
 
 ## Project Overview
 
@@ -163,4 +163,11 @@ export API_BASE_URL="API_GATEWAY_URL"
 3. Run `./scripts/deploy.sh` to recreate full environment from code.
 4. Run `./scripts/test-api.sh` using the gateway URL to verify recovery.
 
-This demonstrates reproducible recovery in minutes using only Terraform and scripts.
+This demonstrates reproducible infrastructure deployment and recovery using Terraform and scripts.
+
+## Team
+
+This project was developed as part of SWE455 – Cloud Applications Engineering at KFUPM.
+
+- Sadeem Alotaibi
+- Renad Alqahtani
