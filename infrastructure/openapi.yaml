@@ -1,0 +1,159 @@
+swagger: "2.0"
+info:
+  title: smart-productivity-gateway
+  description: API Gateway for Smart Productivity Task Manager
+  version: "1.0.0"
+
+schemes:
+  - https
+
+produces:
+  - application/json
+
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: key
+    in: query
+
+security:
+  - api_key: []
+
+paths:
+  /tasks:
+    get:
+      operationId: tasksGet
+      x-google-backend:
+        address: ${task_service_url}/api/tasks
+        path_translation: CONSTANT_ADDRESS
+      responses:
+        "200":
+          description: Success
+
+    post:
+      operationId: tasksPost
+      x-google-backend:
+        address: ${task_service_url}/api/tasks
+        path_translation: CONSTANT_ADDRESS
+      responses:
+        "200":
+          description: Success
+
+  /tasks/{id}:
+    get:
+      operationId: tasksGetById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      x-google-backend:
+        address: ${task_service_url}/api/tasks/{id}
+        path_translation: CONSTANT_ADDRESS
+      responses:
+        "200":
+          description: Success
+
+    put:
+      operationId: tasksPutById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      x-google-backend:
+        address: ${task_service_url}/api/tasks/{id}
+        path_translation: CONSTANT_ADDRESS
+      responses:
+        "200":
+          description: Success
+
+    patch:
+      operationId: tasksPatchById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      x-google-backend:
+        address: ${task_service_url}/api/tasks/{id}
+        path_translation: CONSTANT_ADDRESS
+      responses:
+        "200":
+          description: Success
+
+    delete:
+      operationId: tasksDeleteById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      x-google-backend:
+        address: ${task_service_url}/api/tasks/{id}
+        path_translation: CONSTANT_ADDRESS
+      responses:
+        "200":
+          description: Success
+
+  # ❌ حذفنا /analytics لأنه ما عندك route له
+
+  /analytics/summary:
+    get:
+      operationId: analyticsSummaryGet
+      x-google-backend:
+        address: ${analytics_service_url}/summary
+        path_translation: CONSTANT_ADDRESS
+      responses:
+        "200":
+          description: Success
+
+  /analytics/overdue:
+    get:
+      operationId: analyticsOverdueGet
+      x-google-backend:
+        address: ${analytics_service_url}/overdue
+        path_translation: CONSTANT_ADDRESS
+      responses:
+        "200":
+          description: Success
+
+  /analytics/priority:
+    get:
+      operationId: analyticsPriorityGet
+      x-google-backend:
+        address: ${analytics_service_url}/priority
+        path_translation: CONSTANT_ADDRESS
+      responses:
+        "200":
+          description: Success
+
+  /analytics/completion-rate:
+    get:
+      operationId: analyticsCompletionRateGet
+      x-google-backend:
+        address: ${analytics_service_url}/completion-rate
+        path_translation: CONSTANT_ADDRESS
+      responses:
+        "200":
+          description: Success
+
+  /health/task:
+    get:
+      operationId: taskHealth
+      x-google-backend:
+        address: ${task_service_url}/health
+        path_translation: CONSTANT_ADDRESS
+      responses:
+        "200":
+          description: Success
+
+  /health/analytics:
+    get:
+      operationId: analyticsHealth
+      x-google-backend:
+        address: ${analytics_service_url}/health
+        path_translation: CONSTANT_ADDRESS
+      responses:
+        "200":
+          description: Success
